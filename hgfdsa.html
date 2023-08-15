@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Search Redirect</title>
+</head>
+<body>
+    <h1>Google Search</h1>
+    <form id="searchForm" onsubmit="return redirectToGoogle()">
+        <input type="text" id="searchQuery" placeholder="Enter your search query">
+        <button type="submit">Search</button>
+    </form>
+
+    <script>
+        function redirectToGoogle() {
+            var query = document.getElementById("searchQuery").value;
+            var encodedQuery = encodeURIComponent(query);
+            var searchURL = "https://www.google.com/search?q=" + encodedQuery;
+            
+            window.location.href = searchURL;
+            return false; // Prevent the form from actually submitting
+        }
+    </script>
+</body>
+</html>
